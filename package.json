@@ -1,0 +1,15 @@
+{
+    "dependencies": {
+        "jest": "^29.3.1"
+    },
+    "name": "test-problems",
+    "version": "1.0.0",
+    "description": "A few sample test 'interview' problems",
+    "main": "run_tests.js",
+    "devDependencies": {},
+    "scripts": {
+        "test": "jest"
+    },
+    "author": "William Elliott",
+    "license": "ISC"
+}
