@@ -35,3 +35,5 @@ function theSame(array1, array2) {
     //amazing code here....
     return false;
 }
+
+module.exports = theSame;
