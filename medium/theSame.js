@@ -32,5 +32,6 @@
 // If a or b are nil (or null or None, depending on the language), the problem doesn't make sense so return false.
 
 function theSame(array1, array2) {
-    return true;
+    //amazing code here....
+    return false;
 }
