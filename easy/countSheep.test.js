@@ -1,9 +1,8 @@
 const subFunc = require("./countSheep");
-const solution = (num) => {
-    let result = "";
-    for (let i = 0; i < num; i++, result += `${i} sheep...`);
-    return result;
-};
+const solution = (amountOfSheep) =>
+    [...Array(amountOfSheep).keys()]
+        .map((num) => `${num + 1} sheep`)
+        .join("...");
 const getRandInt = (min, max) => Math.floor(Math.random() * max) + min;
 
 test("Will count to 3 sheep", () => {
