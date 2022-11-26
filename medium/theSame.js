@@ -36,4 +36,12 @@ function theSame(array1, array2) {
     return false;
 }
 
-module.exports = theSame;
+function bonus(array1, array2) {
+    // bonus: same as above, but return the value from a 9million
+    // length array in under 5 seconds
+
+    // keep this null unless attempting to avoid load times
+    return null;
+}
+
+module.exports = { theSame, bonus };

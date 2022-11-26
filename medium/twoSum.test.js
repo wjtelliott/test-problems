@@ -1,4 +1,5 @@
-const subFunc = require("./twoSum");
+const subFunc = require("./twoSum").twoSum;
+const { bonus } = require("./twoSum");
 const solution = (nums, target) => {
     const dict = {};
     for (let i = 0; i < nums.length; i++) {
@@ -46,6 +47,8 @@ test("randoms", () => {
 });
 
 test("big random with bonus", () => {
+    if (bonus([1, 2], 3) == null) return;
+
     const randomList = [...Array(9000000).keys()].map((_) =>
         getRandInt(1, 5000)
     );

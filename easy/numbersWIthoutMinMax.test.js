@@ -6,6 +6,7 @@ const solution = (arr) => {
     let min = Math.min(...arr);
 
     return arr.reduce((prev, curr) => {
+        // if high or min is found, null it and continue
         if (curr === high) {
             high = NaN;
             return prev;

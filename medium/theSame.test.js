@@ -1,14 +1,18 @@
-const subFunc = require("./theSame");
+const subFunc = require("./theSame").theSame;
+const { bonus } = require("./theSame");
 const solution = (numArray, squaredArray) => {
     if (!numArray || !squaredArray) return false;
     if (numArray.length !== squaredArray.length) return false;
 
     const dict = {};
+
+    // map our squared array
     squaredArray.forEach((num) => {
         if (!(num in dict)) dict[num] = 1;
         else dict[num]++;
     });
 
+    // check that square roots exist
     for (let i = 0; i < numArray.length; i++) {
         const squared = numArray[i] ** 2;
         if (!(squared in dict) || dict[squared] < 1) return false;
@@ -19,6 +23,7 @@ const solution = (numArray, squaredArray) => {
 };
 
 const getRandInt = (min, max) => Math.floor(Math.random() * max) + min;
+const getRandBool = () => !!(Math.floor(Math.random() * 2) - 1);
 
 test("Should find this true", () => {
     const list = [121, 144, 19, 161, 19, 144, 19, 11];
@@ -51,17 +56,25 @@ test("randoms", () => {
         const target = randomList
             .map((num) => num ** 2)
             .sort(() => getRandInt(-2, 2));
+
+        const randomFail = getRandBool();
+        if (randomFail) target[getRandInt(0, 3)] *= 4;
         expect(subFunc(randomList, target)).toBe(solution(randomList, target));
     }
 });
 
 test("big random with bonus", () => {
+    if (bonus([1, 2], [1, 4]) == null) return;
+
     const randomList = [...Array(9000000).keys()].map((_) =>
         getRandInt(1, 5000)
     );
     const randomTarget = randomList
         .map((num) => num ** 2)
         .sort(() => getRandInt(-2, 2));
+
+    const randomFail = getRandBool();
+    if (randomFail) randomList[getRandInt(4, 70)] *= 20;
 
     // create our performace test
     const start = performance.now();

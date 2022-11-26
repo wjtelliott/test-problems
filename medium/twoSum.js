@@ -23,4 +23,10 @@ function twoSum(numbers, target) {
     return false;
 }
 
-module.exports = twoSum;
+function bonus(numbers, target) {
+    // same as above, but for a 9million length array within 5 seconds
+    // keep this null unless attempting to avoid load times
+    return null;
+}
+
+module.exports = { twoSum, bonus };
